@@ -1,12 +1,14 @@
 
 
-def aux(a, b):
-    if a == 0:
-        return 1
+def aux(a, b, k):
+    if k == 0:
+        return a
+    else:
+        return aux(a+b, a, k-1)
 
 
 def fibo(n):
-    return n
+    return aux(1, 0, n-1)
 
 
 def fibo_liste(n):
@@ -20,4 +22,4 @@ def fibo_liste(n):
     return liste[n]
 
 
-print(fibo_liste(6))
+print(fibo(6))
