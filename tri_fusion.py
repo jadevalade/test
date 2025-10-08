@@ -11,8 +11,11 @@ def fusion(l1, l2):
         return l2
     if l2 == []:
         return l1
-    l1x = l1.pop()
-    l2x = l2.pop()
+    print(l1)
+    if l1 is not None:
+        l1x = l1.pop()
+    if l2 is not None:
+        l2x = l2.pop()
     if l1x > l2x:
         return [l1x] + fusion(l1, [l2x] + l2)
     else:
@@ -30,4 +33,3 @@ def tri_fusion(liste):
 exemple = [2, 1, 3, 2]
 
 print(tri_fusion(exemple))
-
