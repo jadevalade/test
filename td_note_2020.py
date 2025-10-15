@@ -26,19 +26,15 @@ def ntable_alea(N,R):
     return liste_table
 
 def table_proches(x1, y1, R, list_table, skip_i):
-    minimum = R +1
-    ind = 0
+    minimum = distance_bord(x1, y1, R)
+    ind = -1
     for i in range(len(list_table)):
         if i != skip_i :
             dist = distance_table(x1, y1, list_table[i][0], list_table[i][1])
             if minimum > dist : 
                 minimum = dist
                 ind = i
-    dist = distance_bord(x1, y1, R)
-    if dist < minimum:
-        return (-1, dist)
-    else :
-        return (ind, minimum)
+    return (ind, minimum)
 
 def distance_table_alea(N, R):
     liste = ntable_alea(N,R)
@@ -67,8 +63,6 @@ def plot_tables(R, list_tables):
 
     ax.set_xlim([-R, R])
     ax.set_ylim([-R, R])
-
-    test = (ntable_alea(5, 3))
     x = [u[0] for u in list_tables]
     y = [u[1] for u in list_tables]
 
